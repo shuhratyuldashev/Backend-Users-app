@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import os
 from decouple import config
 
+port = os.environ.get("PORT", 8000)
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wz&wbu$xuv@-mebp&wyjbz+dtk%p(rp#(qa1=3$4dh@h9m4q%n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
