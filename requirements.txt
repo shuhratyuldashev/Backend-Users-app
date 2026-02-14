@@ -10,3 +10,6 @@ PyJWT
 pytz
 sqlparse
 asgiref
+
+
+whitenoise
