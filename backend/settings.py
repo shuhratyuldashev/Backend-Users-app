@@ -70,6 +70,24 @@ MIDDLEWARE = [
 # ========================
 
 ROOT_URLCONF = "backend.urls"
+
+# TEMPLATES (обязательно для django admin)
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],  # можно оставить пустой список []
+        "APP_DIRS": True,  # важно — загружает шаблоны из app/templates
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",  # нужно для admin
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
 WSGI_APPLICATION = "backend.wsgi.application"
 
 
