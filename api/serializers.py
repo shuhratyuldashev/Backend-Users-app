@@ -40,7 +40,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             'bio',
             'avatar',
             'profile_image',
-            'profile_status',
             'profile_links',
             'created_at',
             'updated_at',

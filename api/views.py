@@ -1,8 +1,5 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.contrib.auth.models import User
-from django.db.models import Q
 
 from rest_framework import status, generics, permissions
 from rest_framework.response import Response

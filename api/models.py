@@ -10,17 +10,6 @@ class Profile(models.Model):
 
     profile_image = models.CharField(max_length=255, blank=True)
 
-    STATUS_CHOICES = [
-        ("online", "Online"),
-        ("offline", "Offline"),
-        ("busy", "Busy"),
-    ]
-    profile_status = models.CharField(
-        max_length=20,
-        choices=STATUS_CHOICES,
-        default="offline"
-    )
-
     profile_links = models.JSONField(default=list, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
