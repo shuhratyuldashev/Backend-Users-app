@@ -9,30 +9,14 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# ========================
-# SECURITY
-# ========================
-
 SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = config(
-    "ALLOWED_HOSTS",
-    default="127.0.0.1,localhost",
-    cast=lambda v: [s.strip() for s in v.split(",")],
-)
-
-CSRF_TRUSTED_ORIGINS = config(
-    "CSRF_TRUSTED_ORIGINS",
-    default="",
-    cast=lambda v: [s.strip() for s in v.split(",") if s],
-)
+ALLOWED_HOSTS = ["*"]
 
 
-# ========================
-# APPLICATIONS
-# ========================
+
 
 INSTALLED_APPS = [
     "corsheaders",
@@ -48,10 +32,6 @@ INSTALLED_APPS = [
 ]
 
 
-# ========================
-# MIDDLEWARE
-# ========================
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  # обязательно после SecurityMiddleware
@@ -65,13 +45,9 @@ MIDDLEWARE = [
 ]
 
 
-# ========================
-# URLS / WSGI
-# ========================
 
 ROOT_URLCONF = "backend.urls"
 
-# TEMPLATES (обязательно для django admin)
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -91,9 +67,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "backend.wsgi.application"
 
 
-# ========================
-# DATABASE
-# ========================
 
 DATABASES = {
     "default": {
@@ -106,10 +79,6 @@ DATABASES = {
     }
 }
 
-
-# ========================
-# AUTH
-# ========================
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
@@ -162,7 +131,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # CORS
 # ========================
 
-CORS_ALLOW_ALL_ORIGINS = config("CORS_ALLOW_ALL_ORIGINS", default=False, cast=bool)
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 
